@@ -46,12 +46,6 @@ def main():
     print("Finished exporting")
     print(f"Multi feedback directory can be found in: {out_dir}")
 
-def find_first(items, pred):
-    for item in items:
-        if pred(item):
-            return item
-    raise ValueError("No matching item found for the given predicate")
-
 def get_args():
     parser = argparse.ArgumentParser(
         prog="export-pdfs",
@@ -62,11 +56,5 @@ def get_args():
     parser.add_argument("out_dir", help="The output directory. The command will output a multi feedback directory under this directory. You can zip it and upload to ILIAS for multiple evaluation.")
 
     return parser.parse_args()
-
-def get_first_matching(items, pattern):
-    for child in items:
-        if re.match(pattern, child):
-            return child
-    return None
 
 main()
